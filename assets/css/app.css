@@ -1,14 +1,6 @@
 @import url('reset.css');
 @import url('utils.css');
 
-:root {
-    --white-500: #eff2f7;
-    --white-200: #e2e8f0;
-    --black-500: #1b1f2b;
-    --grey-900: #1a202c;
-    --grey-500: #2d3748;
-    --grey-300: #4a5568;
-}
 body {
     background-color: var(--white-500);
     color: #fff;
@@ -48,21 +40,27 @@ body {
 .form-control {
     -webkit-appearance: none;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:%23748094;%7D%3C/style%3E%3C/defs%3E%3Cpath class='a' d='M8.841,9.912l1.654,1.654a1.054,1.054,0,0,0-.013,1.227L13.5,15.81c.38.38,1.208.172,1.844-.466s.846-1.464.466-1.844l-3.016-3.018a1.062,1.062,0,0,0-1.229.01L9.912,8.841ZM5.667,0a5.667,5.667,0,1,0,5.667,5.667A5.666,5.666,0,0,0,5.667,0Zm0,10A4.333,4.333,0,1,1,10,5.667,4.333,4.333,0,0,1,5.667,10Z'/%3E%3C/svg%3E");
-    background-position: left 15px center;
-    background-repeat: no-repeat;
-    background-size: 16px 16px;
     background-color: #edf2f7;
     border-radius: 6px;
-    padding: 10px 15px 10px 40px;
-    font-size: 16px;
+    padding: 12px 15px;
+    font-size: 15px;
     color: #748094;
     border: 1px solid #edf2f7;
     outline: none;
 }
 .form-control:focus {
     background-color: #fff;
-    border: 1px solid var(--white-200);
+    border-color: var(--white-200);
+}
+.form-control.search {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:%23748094;%7D%3C/style%3E%3C/defs%3E%3Cpath class='a' d='M8.841,9.912l1.654,1.654a1.054,1.054,0,0,0-.013,1.227L13.5,15.81c.38.38,1.208.172,1.844-.466s.846-1.464.466-1.844l-3.016-3.018a1.062,1.062,0,0,0-1.229.01L9.912,8.841ZM5.667,0a5.667,5.667,0,1,0,5.667,5.667A5.666,5.666,0,0,0,5.667,0Zm0,10A4.333,4.333,0,1,1,10,5.667,4.333,4.333,0,0,1,5.667,10Z'/%3E%3C/svg%3E");
+    background-position: left 15px center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-color: #edf2f7;
+    padding: 10px 15px 10px 40px;
+    font-size: 16px;
+    border: 1px solid #edf2f7;
 }
 .header .navbar .user-actions {
     justify-content: normal;
@@ -162,6 +160,13 @@ body {
     height: 100%;
     padding-top: 1rem;
     overflow-y: auto;
+}
+.sidenav.disabled {
+    position: relative;
+}
+.sidenav.disabled > * {
+    filter: blur(2px);
+    opacity: 0.5;
 }
 .sidenav .safe-area {
     background-color: var(--grey-900);
@@ -300,9 +305,7 @@ body {
     color: #cbd5e0;
 }
 
-.main .label {
-    font-weight: 500;
-    font-size: 14px;
+.sidenav .label {
     color: #a0aec0;
 }
 .main .custom-select {
@@ -336,7 +339,7 @@ body {
     background-color: var(--white-200);
     border: 5px solid var(--grey-900);
 }
-.main hr {
+.main > hr {
     border-width: 0.5px;
     border-color: var(--black-500);
     margin: 20px 0;
@@ -346,6 +349,22 @@ body {
     justify-content: stretch;
 }
 
+/* Card */
+.card {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 3px 8px rgba(0,0,0,.05);
+    padding: 20px 25px 25px 25px;
+}
+.card .card-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--grey-500);
+}
+
+/* Form */
+
+/*Responsive*/
 @media (max-width: 1200px) {
     .header {
         background-color: var(--grey-900);

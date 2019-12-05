@@ -1,0 +1,240 @@
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Share House</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body>
+    <div id="app">
+        <header class="header d-flex">
+            <div class="brand d-flex items-center">
+                <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" width="29.103" height="25" viewBox="0 0 29.103 25"><path d="M15.551,2.1l-2.739,2.46a6.292,6.292,0,0,1,.956.858c.026.026.047.062.072.088A6.516,6.516,0,0,1,14.6,6.52l.005-.005c.041.078.1.145.145.227A6.616,6.616,0,0,1,18.2,12.55a6.912,6.912,0,0,1-.1,1.188,6.614,6.614,0,0,1-5.188,10.717V27.1H26.134V15.2H30.1ZM8.937,5.936a3.977,3.977,0,0,0-3.8,2.816,3.968,3.968,0,0,0-2.3,5.746A3.967,3.967,0,0,0,4.969,21.81H7.614V27.1H10.26V21.81h2.646A3.967,3.967,0,0,0,15.04,14.5a3.968,3.968,0,0,0-2.3-5.746A3.977,3.977,0,0,0,8.937,5.936Z" transform="translate(-1 -2.102)" fill="#edf2f7"/></svg>
+                <a class="logo">Share House</a>
+            </div>
+
+            <nav class="navbar d-flex justify-content-between items-center user-actions">
+                <input class="form-control search" type="text" placeholder="Procure por palavras">
+
+                <div class="d-flex items-center">
+                    <ul class="items">
+                        <li>
+                            <a href="#">Anuncie sua propriedade</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Viagens</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Mensagens</a>
+                        </li>
+                    </ul>
+
+                    <div class="avatar">
+                        <input class="dropdown-toggle" type="checkbox">
+
+                        <div class="dropdown">
+                            <a href="#">Configurações</a>
+                            <a href="#">Suporte</a>
+                            <a href="#">Fazer logout</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="main">
+            <section class="sidenav disabled d-flex justify-content-between flex-column">
+                <div class="container">
+                    <div class="d-flex justify-content-between">
+                        <div class="col-w-2">
+                            <div class="label">Quartos</div>
+                            <select class="custom-select">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+
+                        <div class="col-w-2">
+                            <div class="label">Banheiros</div>
+                            <select class="custom-select">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="pt-3 label">Preço</div>
+                        <select class="custom-select">
+                            <option>Mais de R$ 500/mês</option>
+                            <option>Mais de R$ 1,000/mês</option>
+                            <option>Mais de R$ 1,500/mês</option>
+                            <option>Mais de R$ 2,000/mês</option>
+                        </select>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <div class="label mb-3">Tipo de propriedade</div>
+
+                        <label class="mt-3 d-flex items-center">
+                            <input class="custom-radio" name="property" type="radio">
+                            <span class="ml-2">Casa</span>
+                        </label>
+
+                        <label class="mt-3 d-flex items-center">
+                            <input class="custom-radio" name="property" type="radio">
+                            <span class="ml-2">Apartamento</span>
+                        </label>
+
+                        <label class="mt-3 d-flex items-center">
+                            <input class="custom-radio" name="property" type="radio">
+                            <span class="ml-2">Studio</span>
+                        </label>
+
+                        <label class="mt-3 d-flex items-center">
+                            <input class="custom-radio" name="property" type="radio">
+                            <span class="ml-2">Container</span>
+                        </label>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <div class="label mb-3">Requisitos</div>
+
+                        <label class="mt-3 d-flex items-center">
+                            <input class="custom-radio" name="property" type="radio">
+                            <span class="ml-2">Varanda</span>
+                        </label>
+
+                        <label class="mt-3 d-flex items-center">
+                            <input class="custom-radio" name="property" type="radio">
+                            <span class="ml-2">Piscina</span>
+                        </label>
+
+                        <label class="mt-3 d-flex items-center">
+                            <input class="custom-radio" name="property" type="radio">
+                            <span class="ml-2">Praia</span>
+                        </label>
+
+                        <label class="mt-3 d-flex items-center">
+                            <input class="custom-radio" name="property" type="radio">
+                            <span class="ml-2">Animais</span>
+                        </label>
+
+                        <label class="mt-3 d-flex items-center">
+                            <input class="custom-radio" name="property" type="radio">
+                            <span class="ml-2">Crianças</span>
+                        </label>
+
+                        <label class="mt-3 d-flex items-center">
+                            <input class="custom-radio" name="property" type="radio">
+                            <span class="ml-2">Parque</span>
+                        </label>
+
+                        <label class="mt-3 d-flex items-center">
+                            <input class="custom-radio" name="property" type="radio">
+                            <span class="ml-2">Ar condicionado</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="safe-area">
+                    <button class="filter-button">Filtrar</button>
+                </div>
+            </section>
+
+            <div class="container">
+                <div class="title">Anuncie sua propriedade</div>
+                <div class="description">Compartilhe sua casa e conheça pessoas novas!</div>
+
+                <div class="card wp-50 mt-5">
+                    <div class="card-title">Detalhes da propriedade</div>
+
+                    <div class="mt-2 d-flex flex-column">
+                        <label for="photo" class="label mt-4 text-black-40">Imagem de destaque</label>
+                        <img
+                            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            class="img-rounded mt-4"
+                            width="300"
+                            alt="Avatar de Lucas Paz"
+                        >
+                        <input type="file" id="avatar" class="form-control mt-4">
+
+                        <label for="photo" class="label mt-4 text-black-40">Álbum</label>
+                        <div class="d-flex mt-4">
+                            <img
+                                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                class="img-rounded"
+                                width="300"
+                                alt="Avatar de Lucas Paz"
+                            >
+                            <img
+                                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                class="img-rounded ml-2"
+                                width="300"
+                                alt="Avatar de Lucas Paz"
+                            >
+                        </div>
+                        <input type="file" id="avatar" class="form-control mt-4">
+
+                        <label class="label mt-4 text-black-40" for="title">Título</label>
+                        <input type="text" id="title" class="form-control mt-3" value="Casa de luxo com piscina">
+
+                        <label class="label mt-4 text-black-40" for="address">Endereço</label>
+                        <input type="text" id="address" class="form-control mt-3" value="Rua da Paz, Junco, Picos - Piauí">
+
+                        <label class="label mt-4 text-black-40" for="contact">Contato</label>
+                        <input type="text" id="contact" class="form-control mt-4" value="(89) 9 9401-1019">
+
+                        <label class="label mt-4 text-black-40" for="gender">Restrição de Gênero</label>
+                        <select id="gender" class="form-control mt-4">
+                            <option value="0">Sem restrições</option>
+                            <option value="1">Apenas mulheres</option>
+                            <option value="2">Apenas homens</option>
+                        </select>
+
+                        <label class="label mt-4 text-black-40" for="type">Tipo de propriedade</label>
+                        <select id="type" class="form-control mt-4">
+                            <option selected disabled>Selecione um tipo de propriedade</option>
+                            <option value="1">Casa</option>
+                            <option value="2">Apartamento</option>
+                            <option value="3">Studio</option>
+                            <option value="4">Quarto</option>
+                        </select>
+
+                        <label class="label mt-4 text-black-40" for="amenities">Extras</label>
+                        <select id="amenities" class="form-control mt-4" multiple>
+                            <option value="0">Varanda</option>
+                            <option value="1">Piscina</option>
+                            <option value="2">Praia</option>
+                            <option value="3">Animais</option>
+                            <option value="4">Crianças</option>
+                            <option value="5">Parque</option>
+                            <option value="6">Ar condicionado</option>
+                        </select>
+
+                        <div class="d-flex">
+                            <button type="submit" class="mt-4 btn btn-primary">Anunciar</button>
+                            <button type="reset" class="btn ml-2 mt-4">Limpar formulário</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,3 +1,13 @@
+:root {
+    --white-500: #eff2f7;
+    --white-200: #e2e8f0;
+    --black-500: #1b1f2b;
+    --grey-900: #1a202c;
+    --grey-500: #2d3748;
+    --grey-300: #4a5568;
+    --primary: #667eea;
+}
+
 /** * Utils */
 .h-full {
     height: 100%;
@@ -17,11 +27,20 @@
 .ml-2 {
     margin-left: 0.5rem;
 }
+.ml-4 {
+    margin-left: 1rem;
+}
 .mt-3 {
     margin-top: 0.75rem;
 }
+.mt-4 {
+    margin-top: 1rem;
+}
+.mt-5 {
+    margin-top: 1rem;
+}
 .mb-2 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
 }
 .mb-3 {
     margin-bottom: 0.875rem;
@@ -30,7 +49,7 @@
     margin-bottom: 1rem;
 }
 .mb-5 {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 .mb-6 {
     margin-bottom: 1.5rem;
@@ -50,4 +69,56 @@
 }
 .flex-column {
     flex-direction: column;
+}
+
+.text-black-25 {
+    color: #666;
+}
+.text-black-40 {
+    color: #444;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.label {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.wp-50 {
+    width: 50%;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+hr {
+    border-width: 0.5px;
+    border-color: rgba(0, 0, 0, 0.05);
+    margin: 10px 0;
+}
+
+.btn {
+    padding: 15px 20px;
+    border: none;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.875rem;
+}
+.btn.btn-primary {
+    background-color: var(--primary);
+    color: #fff;
+}
+.img-circle {
+    border-radius: 100%;
+}
+.img-rounded {
+    border-radius: 6px;
 }
