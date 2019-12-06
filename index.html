@@ -156,11 +156,15 @@
                 </div>
             </section>
 
-            <div class="container">
+            <div class="container scrollable">
+                <div class="notify" style="margin-bottom: -30px">
+                    Você está deslogado, clique para <a href="#login" class="text-black-40">fazer login.</a>
+                </div>
+
                 <div class="title">Los Angeles</div>
                 <div class="description">Live like the stars in these luxurious Southern California estates.</div>
                 
-                <div class="results">
+                <div class="results scrollable">
                     <div class="house">
                         <div class="image">
                             <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="">
@@ -329,7 +333,7 @@
                 <div class="title">Phoenix</div>
                 <div class="description">Escape the cold and enjoy great weather without breaking the bank.</div>
 
-                <div class="results">
+                <div class="results scrollable">
                     <div class="house">
                         <div class="image">
                             <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="">
@@ -493,6 +497,30 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="login" class="modal-backdrop">
+            <div class="card login mt-5">
+                <div class="card-title d-flex items-center justify-content-between">
+                    Faça login
+
+                    <a href="#" class="modal-close"> <img class="svg" src="assets/svg/cancel.svg" /> </a>
+                </div>
+                <div class="card-body mt-2 d-flex flex-column">
+                    <label class="label mt-4 text-black-40" for="email">E-mail</label>
+                    <input type="email" id="email" class="form-control mt-4" value="lucas@dev.io">
+
+                    <label class="label mt-4 text-black-40" for="password">Senha</label>
+                    <input type="password" id="password" class="form-control mt-4" value="lucas@2019">
+
+                    <div class="d-flex items-center mt-4">
+                        <input type="checkbox" id="check">
+                        <label for="check" class="label ml-2">Mantenha-me conectado!</label>
+                    </div>
+
+                    <button type="submit" class="mt-4 btn btn-primary">Fazer login</button>
                 </div>
             </div>
         </div>

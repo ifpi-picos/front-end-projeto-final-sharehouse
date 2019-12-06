@@ -1,11 +1,33 @@
 :root {
-    --white-500: #eff2f7;
-    --white-200: #e2e8f0;
+    --white-200: #eff2f7;
+    --white-500: #e2e8f0;
+    --white-600: #d6dce4;
     --black-500: #1b1f2b;
-    --grey-900: #1a202c;
-    --grey-500: #2d3748;
     --grey-300: #4a5568;
+    --grey-500: #2d3748;
+    --grey-900: #1a202c;
     --primary: #667eea;
+    --purple: #667eea;
+}
+
+.scrollable {
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+}
+.scrollable img {
+    -webkit-user-drag: none;
+    user-select: none;
+}
+.scrollable::-webkit-scrollbar {
+    background-color: transparent;
+}
+.scrollable::-webkit-scrollbar-thumb {
+    border-radius: 9px;
+    background-color: var(--white-600);
+}
+.scrollable::-webkit-scrollbar-track {
+    border-radius: 9px;
+    background-color: var(--white-200);
 }
 
 /** * Utils */
@@ -90,9 +112,12 @@
 .wp-50 {
     width: 50%;
 }
+.wp-75 {
+    width: 75%;
+}
 
 .flex-1 {
-    flex: 1;
+    flex: 1 1 0;
 }
 
 hr {
@@ -102,6 +127,8 @@ hr {
 }
 
 .btn {
+    background-color: var(--white-500);
+    color: var(--grey-300);
     padding: 15px 20px;
     border: none;
     outline: none;
@@ -121,4 +148,30 @@ hr {
 }
 .img-rounded {
     border-radius: 6px;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+.notify {
+    background-color: var(--white-600);
+    padding: 20px;
+    border-radius: 6px;
+    color: var(--grey-500)
+}
+@media (max-width: 1200px) {
+    .wp-md-100 {
+        width: 100%;
+    }
+
+    .mt-md-2 {
+        margin-top: 1.25em;
+    }
+
+    .ml-md-0 {
+        margin-left: 0;
+    }
 }

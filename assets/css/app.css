@@ -2,7 +2,7 @@
 @import url('utils.css');
 
 body {
-    background-color: var(--white-500);
+    background-color: var(--white-200);
     color: #fff;
     line-height: 1.5rem;
 }
@@ -175,7 +175,7 @@ body {
     display: flex;
 }
 .sidenav .safe-area .filter-button {
-    background-color: #667eea;
+    background-color: var(--purple);
     width: 100%;
     border: none;
     border-radius: 6px;
@@ -336,7 +336,7 @@ body {
     outline: none;
 }
 .main .custom-radio:checked {
-    background-color: var(--white-200);
+    background-color: var(--white-500);
     border: 5px solid var(--grey-900);
 }
 .main > hr {
@@ -354,15 +354,68 @@ body {
     background-color: #fff;
     border-radius: 6px;
     box-shadow: 0 3px 8px rgba(0,0,0,.05);
-    padding: 20px 25px 25px 25px;
+    color: #000;
 }
 .card .card-title {
     font-size: 18px;
     font-weight: 500;
     color: var(--grey-500);
+    padding-top: 20px;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+.card .card-title ~ .card-body {
+    padding-top: 0;
 }
 
-/* Form */
+.card .card-body {
+    padding: 20px 25px 20px 25px;
+}
+
+.album {
+    max-height: 300px;
+    overflow-x: auto;
+}
+
+.modal-backdrop {
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: opacity(0.8) blur(5px);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-backdrop .modal-close {
+    text-decoration: none;
+    color: var(--grey-500);
+    display: block;
+}
+.modal-backdrop .modal-close .svg {
+    width: 13px;
+    height: 13px;
+}
+.modal-backdrop .modal-close:link,
+.modal-backdrop .modal-close:active,
+.modal-backdrop .modal-close:visited {
+    text-decoration: none;
+    color: var(--grey-500);
+}
+.modal-backdrop .login {
+    width: 30%;
+}
+#login {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s linear;
+}
+#login:target {
+    opacity: 1;
+    visibility: visible;
+}
 
 /*Responsive*/
 @media (max-width: 1200px) {
@@ -395,5 +448,8 @@ body {
     .main > .container > .results {
         max-width: 100%;
         overflow-x: scroll;
+    }
+    .main > .container > .results.scrollable {
+        padding-bottom: 20px;
     }
 }
