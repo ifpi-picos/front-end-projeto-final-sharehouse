@@ -46,11 +46,17 @@
 .items-center {
     align-items: center;
 }
+.mr-2 {
+    margin-right: 0.5rem;
+}
 .ml-2 {
     margin-left: 0.5rem;
 }
 .ml-4 {
     margin-left: 1rem;
+}
+.mt-2 {
+    margin-top: 0.5rem;
 }
 .mt-3 {
     margin-top: 0.75rem;
@@ -93,6 +99,15 @@
     flex-direction: column;
 }
 
+.text-white {
+    color: #fff;
+}
+.semibold {
+    font-weight: 500;
+}
+.no-underline {
+    text-decoration: none;
+}
 .text-black-25 {
     color: #666;
 }
@@ -162,7 +177,23 @@ hr {
     border-radius: 6px;
     color: var(--grey-500)
 }
+.d-none {
+    display: none;
+}
+
 @media (max-width: 1200px) {
+    .md:\.d-block {
+        display: block;
+    }
+    .md\:mt-2 {
+        margin-top: 0.5em;
+    }
+    .md\:w-full {
+        width: 100%;
+    }
+    .md\:justify-content-between {
+        justify-content: space-between;
+    }
     .wp-md-100 {
         width: 100%;
     }
