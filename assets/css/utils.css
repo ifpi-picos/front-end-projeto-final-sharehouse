@@ -9,7 +9,17 @@
     --primary: #667eea;
     --purple: #667eea;
 }
-
+.text-justify {
+    text-align: justify;
+}
+.badge {
+    background-color: var(--white-500);
+    padding: 3px 12px;
+    border-radius: 25px;
+    font-size: 14px;
+    color: #000;
+    text-decoration: none;
+}
 .scrollable {
     -webkit-overflow-scrolling: touch;
     padding-bottom: 10px;
@@ -193,6 +203,12 @@ hr {
     }
     .md\:justify-content-between {
         justify-content: space-between;
+    }
+    .md\:flex-column {
+        flex-direction: column;
+    }
+    .md\:ml-0{
+        margin-left: 0;
     }
     .wp-md-100 {
         width: 100%;

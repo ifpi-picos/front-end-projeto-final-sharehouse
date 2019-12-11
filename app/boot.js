@@ -8,6 +8,10 @@ router.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname + '/../index.html'));
 });
 
+router.get('/detail', (req, res) => {
+    res.sendFile(path.resolve(__dirname + '/../detail.html'));
+});
+
 router.get('/register', (req, res) => {
     res.sendFile(path.resolve(__dirname + '/../register.html'));
 });
