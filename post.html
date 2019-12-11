@@ -13,37 +13,45 @@
 <body>
     <div id="app">
         <header class="header d-flex">
-            <div class="brand d-flex items-center">
-                <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" width="29.103" height="25" viewBox="0 0 29.103 25"><path d="M15.551,2.1l-2.739,2.46a6.292,6.292,0,0,1,.956.858c.026.026.047.062.072.088A6.516,6.516,0,0,1,14.6,6.52l.005-.005c.041.078.1.145.145.227A6.616,6.616,0,0,1,18.2,12.55a6.912,6.912,0,0,1-.1,1.188,6.614,6.614,0,0,1-5.188,10.717V27.1H26.134V15.2H30.1ZM8.937,5.936a3.977,3.977,0,0,0-3.8,2.816,3.968,3.968,0,0,0-2.3,5.746A3.967,3.967,0,0,0,4.969,21.81H7.614V27.1H10.26V21.81h2.646A3.967,3.967,0,0,0,15.04,14.5a3.968,3.968,0,0,0-2.3-5.746A3.977,3.977,0,0,0,8.937,5.936Z" transform="translate(-1 -2.102)" fill="#edf2f7"/></svg>
-                <a class="logo">Share House</a>
+            <div class="brand d-flex">
+                <div class="d-flex items-center">
+                    <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" width="29.103" height="25" viewBox="0 0 29.103 25"><path d="M15.551,2.1l-2.739,2.46a6.292,6.292,0,0,1,.956.858c.026.026.047.062.072.088A6.516,6.516,0,0,1,14.6,6.52l.005-.005c.041.078.1.145.145.227A6.616,6.616,0,0,1,18.2,12.55a6.912,6.912,0,0,1-.1,1.188,6.614,6.614,0,0,1-5.188,10.717V27.1H26.134V15.2H30.1ZM8.937,5.936a3.977,3.977,0,0,0-3.8,2.816,3.968,3.968,0,0,0-2.3,5.746A3.967,3.967,0,0,0,4.969,21.81H7.614V27.1H10.26V21.81h2.646A3.967,3.967,0,0,0,15.04,14.5a3.968,3.968,0,0,0-2.3-5.746A3.977,3.977,0,0,0,8.937,5.936Z" transform="translate(-1 -2.102)" fill="#edf2f7"/></svg>
+                    <a class="logo">Share House</a>
+                </div>
+                
+
+                <div class="hamburguer">
+                    <input type="checkbox">
+                    <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
             </div>
 
             <nav class="navbar d-flex justify-content-between items-center user-actions">
                 <input class="form-control search" type="text" placeholder="Procure por palavras">
 
-                <div class="d-flex items-center">
-                    <ul class="items">
-                        <li>
-                            <a href="#">Anuncie sua propriedade</a>
-                        </li>
+                <div class="d-flex md:d-block items-center">
+                    <div class="items">
+                        <a href="#">Anuncie sua propriedade</a>
+                        <a href="#">Viagens</a>
+                        <a href="#">Mensagens</a>
+                    </div>
 
-                        <li>
-                            <a href="#">Viagens</a>
-                        </li>
+                    <div class="d-flex items-center">
+                        <div class="avatar md:mt-2">
+                            <input class="dropdown-toggle" type="checkbox">
 
-                        <li>
-                            <a href="#">Mensagens</a>
-                        </li>
-                    </ul>
-
-                    <div class="avatar">
-                        <input class="dropdown-toggle" type="checkbox">
-
-                        <div class="dropdown">
-                            <a href="#">Configurações</a>
-                            <a href="#">Suporte</a>
-                            <a href="#">Fazer logout</a>
+                            <div class="dropdown">
+                                <a href="#">Configurações</a>
+                                <a href="#">Suporte</a>
+                                <a href="#">Fazer logout</a>
+                            </div>
                         </div>
+                        
+                        <a href="#" class="d-none md:d-block username mt-2 ml-4 text-white no-underline semibold">Lucas Paz</a>
                     </div>
                 </div>
             </nav>
