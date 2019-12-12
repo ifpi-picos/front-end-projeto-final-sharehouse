@@ -22,12 +22,13 @@ body {
 .header {
     background-color: #fff;
     width: 100%;
-    height: 72px;
+    /*height: 72px;*/
 }
 
 .header .brand {
     background-color: var(--grey-900);
     width: 288px;
+    height: 60px;
     padding: 0 20px;
     flex-shrink: 0;
     justify-content: center;
@@ -40,7 +41,7 @@ body {
 
 .header .navbar {
     width: 100%;
-    margin: 15px 20px;
+    margin: 0 30px;
 }
 
 /* Form */
@@ -74,6 +75,7 @@ body {
 
 .hamburguer {
     position: relative;
+    z-index: 1;
 }
 .hamburguer input {
     position: absolute;
@@ -82,6 +84,7 @@ body {
     height: 100%;
     appearance: none;
     opacity: 0;
+    cursor: pointer;
 }
 .hamburguer > div {
     width: 25px;
@@ -198,6 +201,10 @@ body {
     width: 288px;
     height: 100%;
     padding-top: 1rem;
+    transition: all 0.3s linear;
+}
+.sidenav-menu {
+    height: 100%;
     overflow-y: auto;
 }
 
@@ -231,7 +238,7 @@ body {
     outline: none;
 }
 
-.main>.sidenav>.container {
+.main > .sidenav .container {
     width: 100%;
     padding: 0 20px;
     margin: 0 auto;
@@ -493,6 +500,10 @@ body {
     visibility: visible;
 }
 
+.sidenav-search {
+    display: none;
+}
+
 .gallery {
     flex-direction: row;
     display: flex;
@@ -557,15 +568,17 @@ body {
 
     .user-actions {
         justify-content: flex-end;
+        transition: all 0.3s linear;
     }
 
     .main {
         width: 100%;
+        flex-direction: column;
     }
 
     .main .sidenav {
         min-width: 100%;
-        display: none;
+        height: 100%;
     }
 
     .main>.container {
@@ -591,20 +604,18 @@ body {
     }
 
     .header {
-        height: 60px;
+        flex-direction: column;
         display: flex;
         position: relative;
+        z-index: 1;
     }
     .header .navbar {
         background-color: var(--grey-500);
         width: 100%;
         margin: 0;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 1;
         justify-content: flex-start;
         padding: 1rem;
+        border-bottom: 1px solid var(--grey-900);
     }
     .header .navbar .items {
         width: 100%;
@@ -624,5 +635,27 @@ body {
     }
     .header .navbar .dropdown {
         left: 0;
+    }
+    .sidenav-search {
+        background-color: var(--grey-500);
+        width: 100%;
+        padding: 20px 20px;
+        display: flex;
+        border-bottom: 1px solid var(--grey-900);
+    }
+    .sidenav-search .search {
+        background-color: var(--grey-900);
+        border: none;
+        color: #fff;
+    }
+    .sidenav-search .search::placeholder {
+        color: var(--grey-300);
+    }
+    .sidenav-search .btn {
+        background-color: var(--grey-300);
+        color: #fff;
+    }
+    .modal-backdrop .login {
+        width: 90%;
     }
 }

@@ -192,8 +192,14 @@ hr {
 }
 
 @media (max-width: 1200px) {
-    .md:\.d-block {
+    .md\:d-block {
         display: block;
+    }
+    .md\:d-flex {
+        display: flex;
+    }
+    .md\:d-none {
+        display: none;
     }
     .md\:mt-2 {
         margin-top: 0.5em;
@@ -215,6 +221,9 @@ hr {
     }
 
     .mt-md-2 {
+        margin-top: 1.25em;
+    }
+    .mt\:mb-2 {
         margin-top: 1.25em;
     }
 
