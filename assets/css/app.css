@@ -36,7 +36,15 @@ body {
 
 .header .brand .logo {
     font-size: 24px;
+    font-weight: 500;
     margin-left: 10.9px;
+}
+.header .brand .logo:active,
+.header .brand .logo:link,
+.header .brand .logo:visited
+{
+    color: #fff;
+    text-decoration: none;
 }
 
 .header .navbar {
