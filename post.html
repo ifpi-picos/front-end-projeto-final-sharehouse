@@ -34,11 +34,11 @@
 
                 <div class="d-flex md:d-block items-center">
                     <div class="items">
-                        <a href="post.html">Anuncie sua propriedade</a>
-                        <a href="javascript:alert('Entre em contato com o nosso call center: (89) 9 9401-1019');">Ajuda</a>
+                        <a href="post.html">Não possui uma conta?</a>
+                        <a href="javascript:alert('Entre em contato com o nosso call center: (89) 9 9401-1019');">Fazer login</a>
                     </div>
 
-                    <div class="d-flex items-center">
+                    <!-- <div class="d-flex items-center">
                         <div class="avatar md:mt-2">
                             <input class="dropdown-toggle" type="checkbox">
 
@@ -50,7 +50,7 @@
                         </div>
                         
                         <a href="#" class="d-none md:d-block username mt-2 ml-4 text-white no-underline semibold">Lucas Paz</a>
-                    </div>
+                    </div> -->
                 </div>
             </nav>
         </header>
@@ -183,18 +183,20 @@
                 <div class="card wp-md-100 wp-75 mt-5">
                     <div class="card-title">Detalhes da propriedade</div>
 
-                    <div class="card-body mt-2 d-flex flex-column">
+                    <form class="card-body mt-2 d-flex flex-column house-form">
                         <label for="photo" class="label mt-4 text-black-40">Imagem de destaque</label>
-                        <img
-                            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            class="img-rounded mt-4"
-                            width="300"
-                            alt="Avatar de Lucas Paz"
-                        >
+                        <div class="d-none photo">
+                            <img
+                                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                class="img-rounded mt-4"
+                                width="300"
+                                alt="Avatar de Lucas Paz"
+                            >
+                        </div>
                         <input type="file" id="photo" class="form-control mt-4">
 
                         <label for="album" class="label mt-4 text-black-40">Álbum</label>
-                        <div class="d-flex mt-4 album scrollable">
+                        <div class="d-flex mt-4 album scrollable d-none album">
                             <img
                                 src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                                 class="img-rounded"
@@ -208,7 +210,7 @@
                                 alt="Imagem 2"
                             >
                         </div>
-                        <input type="file" id="album" class="form-control mt-4">
+                        <input type="file" id="album" multiple class="form-control mt-4">
 
                         <label class="label mt-4 text-black-40" for="title">Título</label>
                         <input type="text" id="title" class="form-control mt-3" value="Casa de luxo com piscina">
@@ -219,43 +221,111 @@
                         <label class="label mt-4 text-black-40" for="contact">Contato</label>
                         <input type="text" id="contact" class="form-control mt-4" value="(89) 9 9401-1019">
 
-                        <label class="label mt-4 text-black-40" for="gender">Restrição de Gênero</label>
-                        <select id="gender" class="form-control mt-4">
-                            <option value="0">Sem restrições</option>
-                            <option value="1">Apenas mulheres</option>
-                            <option value="2">Apenas homens</option>
-                        </select>
+                        <div class="d-flex justify-content-between">
+                            <div class="flex-grow-1">
+                                <label class="label mt-4 text-black-40" for="baths">Quartos</label>
+                                <input type="number" id="baths" class="form-control mt-4" min="0" value="1"> 
+                            </div>
+
+                            <div class="flex-grow-1 ml-4">
+                                <label class="label mt-4 text-black-40" for="beds">Banheiros</label>
+                                <input type="number" id="beds" class="form-control mt-4" min="0" value="1"> 
+                            </div>
+                        </div>
 
                         <label class="label mt-4 text-black-40" for="type">Tipo de propriedade</label>
                         <select id="type" class="form-control mt-4">
                             <option selected disabled>Selecione um tipo de propriedade</option>
-                            <option value="1">Casa</option>
-                            <option value="2">Apartamento</option>
-                            <option value="3">Studio</option>
-                            <option value="4">Quarto</option>
+                            <option value="house">Casa</option>
+                            <option value="apartment">Apartamento</option>
+                            <option value="studio">Studio</option>
+                            <option value="room">Quarto</option>
                         </select>
 
                         <label class="label mt-4 text-black-40" for="amenities">Extras</label>
                         <select id="amenities" class="form-control mt-4" multiple>
-                            <option value="0">Varanda</option>
-                            <option value="1">Piscina</option>
-                            <option value="2">Praia</option>
-                            <option value="3">Animais</option>
-                            <option value="4">Crianças</option>
-                            <option value="5">Parque</option>
-                            <option value="6">Ar condicionado</option>
+                            <option value="balcony">Varanda</option>
+                            <option value="pool">Piscina</option>
+                            <option value="animals">Animais</option>
+                            <option value="child">Crianças</option>
+                            <option value="air_conditioning">Ar condicionado</option>
                         </select>
 
                         <div class="d-flex">
                             <button type="submit" class="mt-4 btn btn-primary">Anunciar</button>
-                            <button type="reset" class="btn ml-2 mt-4">Limpar formulário</button>
+                            <button type="reset" class="btn ml-2 mt-4" onClick="postReset()">Limpar formulário</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="assets/js/app.js"></script>
+    <script>
+        function postReset() {
+            document.querySelector('.photo').classList.add('d-none');
+            document.querySelector('.album').classList.add('d-none');
+
+            document.querySelector('.album').innerHTML = '';
+        }
+
+        window.addEventListener('load', function() {
+            /** Single File **/
+            document.querySelector('#photo').addEventListener('change', function() {
+                document.querySelector('.photo').classList.remove('d-none');
+
+                if (this.files && this.files[0]) {
+                    var img = document.querySelector('.photo img');  // $('img')[0]
+                    img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+                }
+            });
+            
+            /** Multiple Files **/
+            document.querySelector('#album').addEventListener('change', function() {
+                document.querySelector('.album').classList.remove('d-none');
+
+                console.log(this.files);
+
+                document.querySelector('.album').innerHTML = '';
+                if (this.files && this.files[0]) {
+                    for(var i = 0; i < this.files.length; i++) {
+                        document.querySelector('.album').insertAdjacentHTML('beforeend', `<img src="${URL.createObjectURL(this.files[i])}" class="img-rounded${ i != 0 ? ' ml-2' : ''}" width="300" alt="${this.files[i].name}" />`);
+                    }
+                    // img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+                }
+            });
+        });
+
+        document.querySelector('.house-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            let formData = new FormData();
+            // formData.append('file[]', document.querySelector('.house-form #photo').files[0]);
+            
+            // for(var i = 0; i < document.querySelector('.house-form #album').files.length; i++) {
+            //     formData.append('file[]', document.querySelector('.house-form #album').files[0]);
+            // }
+
+            formData.append('title', document.querySelector('.house-form #title').value);
+            formData.set('contact', document.querySelector('.house-form #contact').value);
+            formData.set('address', document.querySelector('.house-form #address').value);
+            formData.set('beds', document.querySelector('.house-form #beds').value);
+            formData.set('baths', document.querySelector('.house-form #baths').value);
+            formData.set('type', document.querySelector('.house-form #type').value);
+            formData.set('amenities', document.querySelector('.house-form #amenities').value);
+
+            var url = 'http://127.0.0.1:3000/house';
+
+            // formData.append('file', document.querySelector('.house-form #photo').files[0]);
+
+            // axios.post('http://127.0.0.1:3000/house', formData);
+            fetch('http://127.0.0.1:3000/house/imagem', {
+                method: 'POST',
+                body: formData
+            });
+        });
+    </script>
 </body>
 </html>

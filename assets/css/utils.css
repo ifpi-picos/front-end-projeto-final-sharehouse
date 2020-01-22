@@ -132,6 +132,7 @@
 .label {
     font-weight: 500;
     font-size: 14px;
+    display: block;
 }
 
 .wp-50 {
@@ -189,6 +190,9 @@ hr {
 }
 .d-none {
     display: none;
+}
+.flex-grow-1 {
+    flex-grow: 1;
 }
 
 @media (max-width: 1200px) {

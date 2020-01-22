@@ -1,6 +1,9 @@
-let METHOD;
-let URL_BASE;
+const config = {
+    URL_BASE: 'http://127.0.0.1:3000'
+}
 
-function api() {
-    return fetch(URL_BASE);
+function api(URL, METHOD) {
+    return fetch(`${config.URL_BASE}${URL}`, {
+        method: METHOD
+    });
 }

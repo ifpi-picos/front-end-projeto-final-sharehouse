@@ -54,6 +54,7 @@ body {
 
 /* Form */
 .form-control {
+    width: 100%;
     -webkit-appearance: none;
     appearance: none;
     background-color: #edf2f7;
@@ -63,6 +64,7 @@ body {
     color: #748094;
     border: 1px solid #edf2f7;
     outline: none;
+    display: block;
 }
 
 .form-control:focus {
@@ -71,6 +73,7 @@ body {
 }
 
 .form-control.search {
+    width: auto;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:%23748094;%7D%3C/style%3E%3C/defs%3E%3Cpath class='a' d='M8.841,9.912l1.654,1.654a1.054,1.054,0,0,0-.013,1.227L13.5,15.81c.38.38,1.208.172,1.844-.466s.846-1.464.466-1.844l-3.016-3.018a1.062,1.062,0,0,0-1.229.01L9.912,8.841ZM5.667,0a5.667,5.667,0,1,0,5.667,5.667A5.666,5.666,0,0,0,5.667,0Zm0,10A4.333,4.333,0,1,1,10,5.667,4.333,4.333,0,0,1,5.667,10Z'/%3E%3C/svg%3E");
     background-position: left 15px center;
     background-repeat: no-repeat;
