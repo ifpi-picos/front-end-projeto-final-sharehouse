@@ -193,7 +193,7 @@
                                 alt="Avatar de Lucas Paz"
                             >
                         </div>
-                        <input type="file" id="photo" class="form-control mt-4">
+                        <input type="file" id="photo2" class="form-control mt-4">
 
                         <label for="album" class="label mt-4 text-black-40">Álbum</label>
                         <div class="d-flex mt-4 album scrollable d-none album">
@@ -252,7 +252,7 @@
                         </select>
 
                         <div class="d-flex">
-                            <button type="submit" class="mt-4 btn btn-primary">Anunciar</button>
+                            <button type="button" id="anuciar" class="mt-4 btn btn-primary">Anunciar</button>
                             <button type="reset" class="btn ml-2 mt-4" onClick="postReset()">Limpar formulário</button>
                         </div>
                     </form>
@@ -261,9 +261,10 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <!-- <script src="assets/js/app.js"></script> -->
+    <script src="./assets/js/house.js"></script>
+    <!-- <script>
         function postReset() {
             document.querySelector('.photo').classList.add('d-none');
             document.querySelector('.album').classList.add('d-none');
@@ -326,6 +327,6 @@
                 body: formData
             });
         });
-    </script>
+    </script> -->
 </body>
 </html>
