@@ -334,6 +334,7 @@ async function userDetails() {
     try {
         const res = await fetch(base_api + '/users/me', {
             method: 'GET',
+            cache: false,
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
