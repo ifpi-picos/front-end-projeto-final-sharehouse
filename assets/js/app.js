@@ -158,8 +158,10 @@ document.querySelector('.login-form').addEventListener('submit', (e) => {
                     alert(item.msg);
                 });
             } else {
+                alert('Logado com sucesso!');
                 localStorage.setItem('token', res.token);
-                getPage('home');
+                
+                window.history.back(-1);
             }
         });
     } catch (error) {
@@ -482,6 +484,7 @@ function loadHouse(_id) {
 
         document.querySelector('.house-render .gallery').innerHTML = gallery;
         document.querySelector('.house-render .details').innerHTML = item.details;
+        document.querySelector('.house-render .contact').innerHTML = item.contact;
         document.querySelector('.title-house').innerHTML = item.title;
         document.querySelector('.total-beds').innerHTML = item.beds;
         document.querySelector('.total-baths').innerHTML = item.baths;
