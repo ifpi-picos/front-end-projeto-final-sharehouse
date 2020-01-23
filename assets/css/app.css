@@ -476,6 +476,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 
 .modal-backdrop .modal-close {
@@ -516,6 +517,7 @@ body {
 }
 
 .gallery {
+    max-height: 520px;
     flex-direction: row;
     display: flex;
     overflow-y: auto;
@@ -606,9 +608,6 @@ body {
 
     .main>.container>.results.scrollable {
         padding-bottom: 20px;
-    }
-    .gallery {
-        margin-top: -15px;
     }
     .gallery > div {
         max-width: 100%;

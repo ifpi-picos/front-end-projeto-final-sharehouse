@@ -199,6 +199,9 @@ hr {
     .md\:d-block {
         display: block;
     }
+    .md\:wp-100 {
+        width: 100%;
+    }
     .md\:d-flex {
         display: flex;
     }
