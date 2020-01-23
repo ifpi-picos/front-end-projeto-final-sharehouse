@@ -1,11 +1,10 @@
-const base_web = 'http://sharehouse.test';
 const base_api = 'http://127.0.0.1:3000';
 
 const toggleMenu = () => {
     if (userActionsIsClosed == true) {
-        userActions.style.display = 'flex';
+        document.querySelector('.user-actions').style.display = 'flex';
     } else {
-        userActions.style.display = 'none';
+        document.querySelector('.user-actions').style.display = 'none';
     }
 
     userActionsIsClosed = !userActionsIsClosed;
@@ -13,11 +12,11 @@ const toggleMenu = () => {
 
 const toggleSidenav = () => {
     if (sidenavIsClosed == true) {
-        sidenav.style.visibility = 'visible';
-        sidenav.style.height = '100%';
+        document.querySelector('.sidenav').style.visibility = 'visible';
+        document.querySelector('.sidenav').style.height = '100%';
     } else {
-        sidenav.style.visibility = 'hidden';
-        sidenav.style.height = 0;
+        document.querySelector('.sidenav').style.visibility = 'hidden';
+        document.querySelector('.sidenav').style.height = 0;
     }
 
     sidenavIsClosed = !sidenavIsClosed;
@@ -53,6 +52,29 @@ async function getPage(page, optional = []) {
 
 getPage('home');
 
+async function settingsJS() {
+    let user = await userDetails();
+
+    document.querySelector('.settings-form img').setAttribute('src', user.avatar);
+    document.querySelector('.settings-form #name').setAttribute('value', user.name);
+
+    document.querySelector('.settings-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        let formData = new FormData();
+
+        formData.append('file', document.querySelector('.settings-form #avatar').files[0]);
+        formData.append('name', document.querySelector('.settings-form #name').value);
+        formData.append('password', document.querySelector('.settings-form #password').value);
+
+        fetch(base_api + '/users/' + user.id, {
+            method: 'PUT',
+            body: formData
+        })
+        // .then(toJSON => toJSON.json())
+        // .then(res => getPage('settings'));
+    });
+}
 
 function registerJS() {
     let form = document.querySelector('#register');
@@ -98,9 +120,15 @@ function registerJS() {
             fetch(base_api + '/users', {
                 method: 'POST',
                 body: formData
+            })
+            .then(toJSON => toJSON.json())
+            .then(res => {
+                if(res.msg) {
+                    alert(res.msg);
+                } else {
+                    getPage('home');
+                }
             });
-
-            console.log('Deu certo');
         } catch (error) {
             console.error(error);
         }
@@ -131,8 +159,7 @@ document.querySelector('.login-form').addEventListener('submit', (e) => {
                 });
             } else {
                 localStorage.setItem('token', res.token);
-                alert('Logado com sucesso!');
-                window.location.href = '/';
+                getPage('home');
             }
         });
     } catch (error) {
@@ -173,6 +200,10 @@ function plugins(page = null) {
 
             houseResults.innerHTML = results;
         });
+    }
+
+    if(page == 'settings') {
+        settingsJS();
     }
 
     if(page == 'register') {
@@ -234,9 +265,10 @@ function plugins(page = null) {
                     body: formData
                 })
                 .then(toJson => toJson.json())
-                .then(res => document.querySelector('.house-form').style.opacity = 1);
-
-                window.location.href = '/';
+                .then(res => {
+                    document.querySelector('.house-form').style.opacity = 1;
+                    getPage('home');
+                });
             } catch (error) {
                 console.error(error);
             }
@@ -266,21 +298,34 @@ function postReset() {
     document.querySelector('.album').innerHTML = '';
 }
 
-
-header().then(html => document.querySelector('.header-render').innerHTML = html);
-
-let sidenav = document.querySelector('.sidenav');
-let userActions = document.querySelector('.user-actions');
-
 let sidenavIsClosed = true;
 let userActionsIsClosed = true;
 
-if(document.body.clientWidth <= 1200) {
-    sidenav.style.visibility = 'hidden';
+header().then(html => {
+    document.querySelector('.header-render').innerHTML = html;
 
-    sidenav.style.height = 0;
-    userActions.style.display = 'none';
-}
+    if(document.body.clientWidth <= 1200) {
+        document.querySelector('.sidenav').style.visibility = 'hidden';
+
+        document.querySelector('.sidenav').style.height = 0;
+        document.querySelector('.user-actions').style.display = 'none';
+    }
+
+
+    document.querySelector('.header .search-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        filter(document.querySelector('.header .search-form .search').value);
+    });
+
+    document.querySelector('.main .search-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        filter(document.querySelector('.main .search-form .search').value);
+    });
+});
+
+
 
 async function userDetails() {
     try {
@@ -301,8 +346,6 @@ async function userDetails() {
 async function header() {
     var user = await userDetails();
 
-    console.log(user);
-
     let menuOptions = null;
 
     if(localStorage.getItem('token') != null) {
@@ -312,7 +355,7 @@ async function header() {
     </div>
 
     <div class="d-flex items-center">
-        <div class="avatar md:mt-2" ${user.avatar ? `style="background-image: url(${user.avatar[0].url})` : ''}">
+        <div class="avatar md:mt-2" ${user.avatar ? `style="background-image: url(${user.avatar})` : ''}">
             <input class="dropdown-toggle" type="checkbox">
 
             <div class="dropdown">
@@ -349,7 +392,10 @@ async function header() {
     </div>
 
     <nav class="navbar d-flex justify-content-between items-center user-actions">
-        <input class="form-control search" type="text" placeholder="Procure por palavras">
+        <form class="search-form">
+            <input class="form-control search" type="text" placeholder="Procure por palavras">
+            <input type="submit" class="d-none">
+        </form>
 
         <div class="d-flex md:d-block items-center">
             ${menuOptions}
@@ -364,7 +410,55 @@ function logout() {
     return window.location.reload();
 }
 
-function filter() {}
+function sideNavFilter() {
+    let price = document.querySelector('.filter-price').value;
+    let type = document.querySelector('.filter-type').value;
+    let amentities = document.querySelector('.filter-amentities').value;
+    let beds = document.querySelector('.filter-beds').value;
+    let baths = document.querySelector('.filter-baths').value;
+
+    filter(null, price, type, amentities, beds, baths);
+}
+
+async function filter(title = null, price = null, type = null, amentities = null, beds = null, baths = null) {
+    const res = await fetch(base_api + '/house/filter', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            title: title,
+            price: price,
+            type: type,
+            amentities: amentities,
+            beds: beds,
+            baths: baths
+        })
+    }).then(toJSON => toJSON.json());
+
+    let houseResults = document.querySelector('.house-results');
+    let results = [];
+
+    for(let i = 0; i < res.length; i++) {
+        let item = res[i];
+        results[i] = `<div class="house">
+        <div class="image"> <img src="${item.urlImagem[0].url}" alt=""> </div>
+        <div class="details">
+            <div class="box">
+                <div class="tags"> <span class="plus">NOVO</span>
+                    <div class="quantity">${item.baths} banheiro • ${item.beds} quarto</div>
+                </div><a href="javascript:getPage('house', '${item._id}')" class="announce no-underline">${item.title}</a>
+                <div class="value"> <span class="price">R$ ${money(item.price)}</span> <span class="tmp">/mês</span> </div>
+                <div class="rating">
+                    <span>${item.address}</span>
+                </div>
+            </div>
+        </div>
+    </div>`;
+    }
+
+    houseResults.innerHTML = results;
+}
 
 function loadHouse(_id) {
     fetch(base_api + '/house/' + _id)
