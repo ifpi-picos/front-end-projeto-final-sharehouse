@@ -1,4 +1,4 @@
-const base_api = 'http://127.0.0.1:3000';
+const base_api = 'https://share-houses.herokuapp.com';
 
 const toggleMenu = () => {
     if (userActionsIsClosed == true) {
