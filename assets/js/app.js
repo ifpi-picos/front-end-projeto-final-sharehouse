@@ -1,4 +1,5 @@
-const base_api = 'https://share-houses.herokuapp.com';
+// const base_api = 'https://share-houses.herokuapp.com';
+const base_api = 'http://5a450230.ngrok.io/';
 
 const toggleMenu = () => {
     if (userActionsIsClosed == true) {
