@@ -126,7 +126,7 @@ function registerJS() {
                 if(res.msg) {
                     alert(res.msg);
                 } else {
-                    window.location.href = '/';
+                    getPage('home');
                 }
             });
         } catch (error) {
@@ -159,7 +159,7 @@ document.querySelector('.login-form').addEventListener('submit', (e) => {
                 });
             } else {
                 localStorage.setItem('token', res.token);
-                window.location.href = '/';
+                getPage('home');
             }
         });
     } catch (error) {
@@ -265,9 +265,10 @@ function plugins(page = null) {
                     body: formData
                 })
                 .then(toJson => toJson.json())
-                .then(res => document.querySelector('.house-form').style.opacity = 1);
-
-                window.location.href = '/';
+                .then(res => {
+                    document.querySelector('.house-form').style.opacity = 1;
+                    getPage('home');
+                });
             } catch (error) {
                 console.error(error);
             }
