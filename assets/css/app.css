@@ -277,11 +277,13 @@ body {
 
 .main>.container>.results {
     margin-top: 2rem;
-    display: inline-flex;
+    flex-wrap: wrap;
+    display: flex;
 }
 
 .main>.container>.results>.house {
     width: 20rem;
+    margin-bottom: 2rem;
     margin-left: 1rem;
     flex-shrink: 0;
 }
@@ -601,11 +603,14 @@ body {
         overflow-x: hidden;
     }
 
-    .main>.container>.results {
+    /* .main>.container>.results {
         max-width: 100%;
         overflow-x: scroll;
-    }
+    } */
 
+    .main>.container>.results > .house:nth-child(3n) {
+        margin-left: 0;
+    }
     .main>.container>.results.scrollable {
         padding-bottom: 20px;
     }
