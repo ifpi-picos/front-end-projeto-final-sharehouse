@@ -484,7 +484,7 @@ function loadHouse(_id) {
 
         document.querySelector('.house-render .gallery').innerHTML = gallery;
         document.querySelector('.house-render .details').innerHTML = item.details;
-        document.querySelector('.house-render .contact').innerHTML = item.contact;
+        document.querySelector('.house-render .contact').setAttribute('href', `tel:${item.contact}`);
         document.querySelector('.title-house').innerHTML = item.title;
         document.querySelector('.total-beds').innerHTML = item.beds;
         document.querySelector('.total-baths').innerHTML = item.baths;
